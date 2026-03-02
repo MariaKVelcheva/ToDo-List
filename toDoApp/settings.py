@@ -21,7 +21,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "toDoApp.auth_todo"
+    "toDoApp.auth_todo",
+    "toDoApp.profiles"
 ]
 
 MIDDLEWARE = [
@@ -102,5 +103,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+AUTH_USER_MODEL = "profiles.ToDoUser"
 LOGIN_REDIRECT_URL = reverse_lazy("home")
 LOGOUT_REDIRECT_VIEW = reverse_lazy("home")
