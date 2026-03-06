@@ -53,6 +53,12 @@ TEMPLATES = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "toDoApp.profiles.authentication.EmailOrUsernameBackend",
+
+]
+
 WSGI_APPLICATION = 'toDoApp.wsgi.application'
 
 
@@ -106,3 +112,4 @@ STATIC_URL = 'static/'
 AUTH_USER_MODEL = "profiles.ToDoUser"
 LOGIN_REDIRECT_URL = reverse_lazy("home")
 LOGOUT_REDIRECT_VIEW = reverse_lazy("home")
+
