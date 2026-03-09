@@ -22,7 +22,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "toDoApp.auth_todo",
-    "toDoApp.profiles"
+    "toDoApp.accounts",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ TEMPLATES = [
 
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
-    "toDoApp.profiles.authentication.EmailOrUsernameBackend",
+    "toDoApp.accounts.authentication.EmailOrUsernameBackend",
 
 ]
 
@@ -109,7 +110,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-AUTH_USER_MODEL = "profiles.ToDoUser"
+AUTH_USER_MODEL = "accounts.ToDoUser"
 LOGIN_REDIRECT_URL = reverse_lazy("home")
 LOGOUT_REDIRECT_VIEW = reverse_lazy("home")
 

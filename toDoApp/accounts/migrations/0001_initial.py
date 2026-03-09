@@ -2,7 +2,7 @@
 
 import django.contrib.auth.validators
 import django.utils.timezone
-import toDoApp.profiles.managers
+import toDoApp.accounts.managers
 from django.db import migrations, models
 
 

@@ -1,7 +1,7 @@
 from django.contrib.auth import models as auth_models, get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from toDoApp.profiles.managers import ToDoManager
+from toDoApp.accounts.managers import ToDoManager
 
 
 class ToDoUser(auth_models.AbstractUser):
