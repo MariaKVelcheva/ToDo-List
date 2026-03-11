@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
-from toDoApp.accounts.forms import ToDoUserChangeForm, ToDoUserCreationForm
-from toDoApp.accounts.models import ToDoProfile, ToDoUser
+from toDoApp.profiles.forms import ToDoUserChangeForm, ToDoUserCreationForm
+from toDoApp.profiles.models import ToDoProfile, ToDoUser
 from django.contrib.auth import get_user_model
 
 
@@ -41,7 +41,7 @@ class UserModelAdmin(UserAdmin):
             None,
             {
                 "classes": ("wide",),
-                "fields": ("username", "password1", "password2"),
+                "fields": ("username", ),
             },
         ),
     )

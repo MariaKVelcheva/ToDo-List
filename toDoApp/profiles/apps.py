@@ -2,9 +2,9 @@ from django.apps import AppConfig
 
 
 class ProfilesConfig(AppConfig):
-    name = 'toDoApp.accounts'
+    name = 'toDoApp.profiles'
 
     def ready(self):
-        import toDoApp.accounts.signals
+        import toDoApp.profiles.signals
 
 

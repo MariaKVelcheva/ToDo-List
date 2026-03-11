@@ -15,7 +15,7 @@ class ToDoUserCreationForm(UserCreationForm):
 class ToDoUserChangeForm(UserChangeForm):
     class Meta(UserCreationForm.Meta):
         model = CustomUser
-        fields = ("username", "email", "password1", "password2")
+        fields = ("username", "email", )
 
 
 class ToDoUserLoginForm(AuthenticationForm):

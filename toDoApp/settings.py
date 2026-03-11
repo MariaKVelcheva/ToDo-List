@@ -22,9 +22,22 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "toDoApp.auth_todo",
-    "toDoApp.accounts",
+    "toDoApp.profiles",
     "rest_framework",
+    "drf_spectacular",
+    "rest_framework_simplejwt",
 ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "DEFAULT_AUTHENTICATION_CLASSES": ["rest_framework_simplejwt.authentication.JWTAuthentication",],
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "ToDo App",
+    "DESCRIPTION": "",
+    "VERSION": "1.0.0",
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -56,7 +69,7 @@ TEMPLATES = [
 
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
-    "toDoApp.accounts.authentication.EmailOrUsernameBackend",
+   "toDoApp.profiles.authentication.EmailOrUsernameBackend",
 
 ]
 
@@ -110,7 +123,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-AUTH_USER_MODEL = "accounts.ToDoUser"
+AUTH_USER_MODEL = "profiles.ToDoUser"
 LOGIN_REDIRECT_URL = reverse_lazy("home")
 LOGOUT_REDIRECT_VIEW = reverse_lazy("home")
 
