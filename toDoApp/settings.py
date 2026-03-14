@@ -1,18 +1,18 @@
 from pathlib import Path
 from django.urls import reverse_lazy
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-^a3hi-ieiidgpg-q^q7)l9a11+k=#^6b&ex^drz*n3989zud95'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
-# Application definition
+PROJECT_APPS = [
+    "toDoApp.auth_todo",
+    "toDoApp.profiles",
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -21,15 +21,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "toDoApp.auth_todo",
-    "toDoApp.profiles",
     "rest_framework",
     "drf_spectacular",
     "rest_framework_simplejwt",
-]
+] + PROJECT_APPS
 
 REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated", ],
     "DEFAULT_AUTHENTICATION_CLASSES": ["rest_framework_simplejwt.authentication.JWTAuthentication",],
 }
 
@@ -69,7 +68,7 @@ TEMPLATES = [
 
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
-   "toDoApp.profiles.authentication.EmailOrUsernameBackend",
+    "toDoApp.profiles.authentication.EmailOrUsernameBackend",
 
 ]
 
@@ -86,9 +85,6 @@ DATABASES = {
     }
 }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
