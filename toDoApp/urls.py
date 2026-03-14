@@ -8,4 +8,5 @@ urlpatterns = [
     path('', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
     path('api/auth/', include('toDoApp.profiles.urls')),
+    path('tasks/', include('toDoApp.auth_todo.urls')),
 ]
